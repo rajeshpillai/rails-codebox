@@ -10,6 +10,7 @@ class CodesController < ApplicationController
   # GET /codes/1
   # GET /codes/1.json
   def show
+    response.headers.delete "X-Frame-Options"
   end
 
   # GET /codes/new

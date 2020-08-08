@@ -2,6 +2,8 @@
 <%= @code.title %>
 <strong>Type:</strong>
 <%= @code.code_lang %>
+
+<%= button_tag "Run", id: "btn_run", data_id: @code.id%>
 <div class="container">
   <div class="row">
     <div class="col-6">
@@ -17,10 +19,12 @@
   <%= link_to 'Back', codes_path %>
 </div>
 
+<%= javascript_pack_tag 'code_preview' %>
+
 <% content_for :javascript do %>
   <script type="text/javascript">
     console.log("Loaded...");
-    alert('Some page-specific JS');
+    
   </script>
 <% end %>
 

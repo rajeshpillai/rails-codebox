@@ -32,6 +32,16 @@ module Codebox
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    # for iframe
+    config.action_dispatch.default_headers.merge!({'X-Frame-Options' => 'ALLOWALL'})
+
     # config.assets.paths << Rails.root.join('node_modules')
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :options]
+      end
+    end
   end
 end
