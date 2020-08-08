@@ -1,3 +1,3 @@
 # README
 
-- yarn add codemirrro
+- yarn add codemirror
