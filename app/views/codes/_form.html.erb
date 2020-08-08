@@ -11,6 +11,10 @@
     </div>
   <% end %>
 
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -20,29 +24,29 @@
     <%= form.label :code_lang %>
     <%= form.text_field :code_lang %>
   </div>
-
-  <div class="field">
-    <%= form.label :Html %>
-    <%= form.text_area :html, id: "html_id" %>
-  </div>
   
-  <div class="field">
-    <%= form.label :CSS %>
-    <%= form.text_area :css, id: "css_id" %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :Code %>
-    <%= form.text_area :code, id: "code_id" %>
-  </div>
-  
-
   <div class="field">
     <%= form.label :category_id %>
     <%= form.collection_select :category_id, Category.all, :id, :name %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div clas="container">
+    <div class="row">
+      <div class="col">
+        <div class="field">
+          <%= form.text_area :css, id: "css_id", placeholder: "CSS" %>
+        </div>
+        <%= form.text_area :html, id: "html_id", placeholder: "HTML" %>
+        <div class="field">
+          <%= form.text_area :code, id: "code_id",placeholder: "CODE" %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-6">
+          <iframe title="result" className="iframe" id="iframe"></iframe>
+        </div>
+      </div>
+    </div>
   </div>
+  
 <% end %>
