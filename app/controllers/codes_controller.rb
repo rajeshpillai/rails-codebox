@@ -69,6 +69,6 @@ class CodesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def code_params
-      params.require(:code).permit(:title, :code_lang, :body, :category_id)
+      params.require(:code).permit(:title, :code_lang, :code, :html, :css, :category_id)
     end
 end

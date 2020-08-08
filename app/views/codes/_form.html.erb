@@ -22,9 +22,20 @@
   </div>
 
   <div class="field">
-    <%= form.label :Code %>
-    <%= form.text_area :body, id: "code_id" %>
+    <%= form.label :Html %>
+    <%= form.text_area :html, id: "html_id" %>
   </div>
+  
+  <div class="field">
+    <%= form.label :CSS %>
+    <%= form.text_area :css, id: "css_id" %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :Code %>
+    <%= form.text_area :code, id: "code_id" %>
+  </div>
+  
 
   <div class="field">
     <%= form.label :category_id %>

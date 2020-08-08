@@ -5,3 +5,49 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Code.delete_all
+Category.delete_all
+User.delete_all
+Tagging.delete_all 
+Tag.delete_all 
+
+
+Category.create(name: "Programming")
+Category.create(name: "Web Development")
+Category.create(name: "Ruby on Rails")
+Category.create(name: "React")
+
+javascript = Tag.create(name: "javascript")
+react = Tag.create(name: "react")
+ruby = Tag.create(name: "ruby")
+node = Tag.create(name: "node")
+
+admin_user = User.create(
+  email: "rajesh@algorisys.com",
+  username:"admin", password:"123456",
+  password_confirmation:"123456")
+
+10.times do |i|
+    User.create(
+        email: "user#{i}@algorisys.com",
+        username:"user#{i}", password:"123456",
+        password_confirmation:"123456")
+    
+end
+
+Category.all.each do |category|
+  10.times do |i|
+      Code.create(title: "Post #{i}", 
+        user_id: admin_user.id,
+        tags: i % 2 == 0 ? [javascript, react] : [ruby, node],
+        category: category,
+        code: 'function greeting() {' <<
+          'console.log("hello world")' <<
+        '}' <<
+        'greeting()',
+        html: "<h2>Hello world</h2>",
+        css: ""
+      )
+  end
+end
