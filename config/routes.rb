@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   
+  resources :codes
+  resources :tags
+  resources :categories
   get 'home/index'
   devise_for :users
   # You have to create home controller with index action

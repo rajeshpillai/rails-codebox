@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   attr_writer :login 
 
+  has_many :codes
+
   def login 
     @login || self.username || self.email
   end
