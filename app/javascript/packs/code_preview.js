@@ -16,7 +16,7 @@ document.addEventListener("turbolinks:load", () => {
   function show_preview(data) {
     const iframe = document.querySelector("#iframe");
     const doc = iframe.contentDocument;
-    const documentContents = `
+    const output = `
       <!DOCTYPE html>
       <html lang="en">
       <head>
@@ -32,7 +32,7 @@ document.addEventListener("turbolinks:load", () => {
         ${data.html}
 
         <script type="text/javascript">
-          ${data.js}
+          ${data.code}
         </script>
 
       </body>
@@ -40,8 +40,10 @@ document.addEventListener("turbolinks:load", () => {
     `;
 
     doc.open();
-    doc.write(documentContents);
+    doc.write(output);
     doc.close();
+
+    console.log(output);
     // iframe.contentWindow.location.reload();
     // iframe.src = "data:text/html;charset=utf-8," + encodeURI(documentContents)
     
