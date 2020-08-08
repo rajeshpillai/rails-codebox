@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_08_08_104058) do
 
   create_table "codes", force: :cascade do |t|
     t.string "title"
-    t.string "type"
+    t.string "code_lang"
     t.text "body"
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false

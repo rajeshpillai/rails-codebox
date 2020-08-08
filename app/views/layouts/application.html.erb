@@ -7,21 +7,28 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
+    </link>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js">
+</script>
+
   </head>
 
   <body>
-  <div>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-    <% if user_signed_in? %>
-      <%=link_to "Sign out", destroy_user_session_path, method: :delete  %>
-    <% else%>
-      <%= link_to "Log In", new_user_session_path %>
-      <%= link_to "Sign Up", new_user_registration_path %>
-    <% end %>
-    </div>
-
+      <% if user_signed_in? %>
+        <%=link_to "Sign out", destroy_user_session_path, method: :delete  %>
+      <% else%>
+        <%= link_to "Log In", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path %>
+      <% end %>
+  </div>
+  <div class="container">
     <%= yield %>
+  </div>
   </body>
 </html>

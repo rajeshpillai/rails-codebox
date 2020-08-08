@@ -25,7 +25,7 @@ class CodesController < ApplicationController
   # POST /codes.json
   def create
     @code = Code.new(code_params)
-
+    @code.user_id = current_user.id
     respond_to do |format|
       if @code.save
         format.html { redirect_to @code, notice: 'Code was successfully created.' }
@@ -69,6 +69,6 @@ class CodesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def code_params
-      params.require(:code).permit(:title, :type, :body, :category_id)
+      params.require(:code).permit(:title, :code_lang, :body, :category_id)
     end
 end

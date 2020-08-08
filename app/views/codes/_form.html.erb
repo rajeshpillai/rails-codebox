@@ -17,18 +17,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
+    <%= form.label :code_lang %>
+    <%= form.text_field :code_lang %>
   </div>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.label :Code %>
+    <%= form.text_area :body, id: "code_id" %>
   </div>
 
   <div class="field">
     <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
+    <%= form.collection_select :category_id, Category.all, :id, :name %>
   </div>
 
   <div class="actions">
