@@ -18,12 +18,18 @@ import "codemirror"
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+//= require "codemirror"
+//= require codemirror/modes/xml
+//= require codemirror/modes/htmlmixed
+//= require codemirror/modes/javascript
+//= require codemirror/modes/ruby
+
 document.addEventListener("turbolinks:load", () => {
-  var code = $("#code_id")[0];
-  if (!code) return;
-  CodeMirror.fromTextArea(code), {
+  var code = document.querySelector("#code_id"); // $("#code_id")[0];
+  CodeMirror.fromTextArea(code, {
     lineNumbers: true,
-    value: 'console.log("Hello, Ruby")',
-    mode: 'javascript'
-  }
+    mode: 'javascript',
+    gutter: true,
+    lineWrapping: true
+  })
 });
