@@ -10,6 +10,12 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "codemirror"
+import "codemirror/lib/codemirror.css";
+import "codemirror/theme/material.css";
+import "codemirror/mode/htmlmixed/htmlmixed";
+import "codemirror/mode/css/css";
+import "codemirror/mode/javascript/javascript";
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -30,6 +36,7 @@ document.addEventListener("turbolinks:load", () => {
     lineNumbers: true,
     mode: 'javascript',
     gutter: true,
-    lineWrapping: true
+    lineWrapping: true,
+    theme: "material"
   })
 });
